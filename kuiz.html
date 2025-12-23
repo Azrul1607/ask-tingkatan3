@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuiz Interaktif | ASK T3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="music-container">
+        <div class="music-info">
+            <span><i class="fas fa-music"></i> Audio System</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="bckgrnd.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <i class="fas fa-brain fa-3x" style="color: var(--accent); margin-bottom: 10px;"></i>
+            <h1>Cabaran Kuiz</h1>
+            <p>Topik 4.1.6: Menghasilkan Borang & Memasukkan Data</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
+        <a href="nota.html"><i class="fas fa-book-open"></i> NOTA</a>
+        <a href="kuiz.html" class="active"><i class="fas fa-pencil-alt"></i> KUIZ</a>
+        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
+    </nav>
+
+    <div class="container">
+        <section id="bahagianA">
+            <h2><i class="fas fa-list-ul"></i> Bahagian A: Objektif</h2>
+            
+            
+
+            <div class="card">
+                <p><strong>1.</strong> Atribut manakah menentukan fail PHP untuk memproses data?</p>
+                <input type="radio" name="q1" id="q1a"> A) Action <br>
+                <input type="radio" name="q1" id="q1b"> B) Method <br>
+                <input type="radio" name="q1" id="q1c"> C) Name
+            </div>
+
+            <div class="card">
+                <p><strong>2.</strong> Kaedah manakah yang memaparkan data pada bar alamat URL?</p>
+                <input type="radio" name="q2" id="q2a"> A) POST <br>
+                <input type="radio" name="q2" id="q2b"> B) GET <br>
+                <input type="radio" name="q2" id="q2c"> C) SUBMIT
+            </div>
+
+            <div class="card">
+                <p><strong>3.</strong> Tag untuk membina butang pilihan (pilih satu sahaja):</p>
+                <input type="radio" name="q3" id="q3a"> A) Checkbox <br>
+                <input type="radio" name="q3" id="q3b"> B) Radio <br>
+                <input type="radio" name="q3" id="q3c"> C) Select
+            </div>
+
+            <div class="card">
+                <p><strong>4.</strong> Digunakan untuk mengumpul data ulasan atau alamat (berbilang baris):</p>
+                <input type="radio" name="q4" id="q4a"> A) Textarea <br>
+                <input type="radio" name="q4" id="q4b"> B) Textbox <br>
+                <input type="radio" name="q4" id="q4c"> C) Input Type="text"
+            </div>
+
+            <div class="card">
+                <p><strong>5.</strong> Manakah antara berikut adalah kelebihan kaedah <strong>POST</strong>?</p>
+                <input type="radio" name="q5" id="q5a"> A) Lebih selamat untuk data sulit <br>
+                <input type="radio" name="q5" id="q5b"> B) Data dipaparkan di URL <br>
+                <input type="radio" name="q5" id="q5c"> C) Hanya boleh hantar sedikit data
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn" onclick="checkObjektif()">
+                    <i class="fas fa-check-circle"></i> Semak Bahagian A
+                </button>
+                <h3 id="resObj" style="margin-top:15px; color: var(--primary);"></h3>
+            </div>
+        </section>
+
+        <hr style="margin: 40px 0; border: 1px dashed var(--glass-border);">
+
+        <section id="bahagianB">
+            <h2><i class="fas fa-code"></i> Bahagian B: Subjektif Kod HTML</h2>
+            <p style="margin-bottom: 20px; color: #aaa;"><em>Taip kod HTML yang tepat. Sistem akan mengabaikan ruang kosong yang tidak perlu.</em></p>
+
+            <div class="card">
+                <p><strong>6.</strong> Tuliskan tag pembuka borang yang menghantar data ke "proses.php".</p>
+                <input type="text" id="s6" class="input-kod" placeholder="<form ...>">
+                <div id="ans6" class="feedback"></div>
+            </div>
+
+            <div class="card">
+                <p><strong>7.</strong> Kod input teks dengan nama (name) "username".</p>
+                <input type="text" id="s7" class="input-kod" placeholder="<input ...>">
+                <div id="ans7" class="feedback"></div>
+            </div>
+
+            <div class="card">
+                <p><strong>8.</strong> Apakah tag input untuk mencipta butang 'Hantar' (submit)?</p>
+                <input type="text" id="s8" class="input-kod" placeholder="<input ...>">
+                <div id="ans8" class="feedback"></div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn" onclick="checkSubjektif()" style="border-color: var(--secondary); color: var(--secondary);">
+                    <i class="fas fa-spell-check"></i> Semak Bahagian B
+                </button>
+                <h3 id="resSub" style="margin-top:15px; color: var(--secondary);"></h3>
+            </div>
+        </section>
+    </div>
+
+    <footer>&copy; 2025 Portal ASK Tingkatan 3 | Rujukan Bab 4.1.6</footer>
+
+    <script>
+        // Tetapan awal volume mengikut permintaan anda (0.025)
+        var music = document.getElementById("bgMusic");
+        music.volume = 0.025;
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) { 
+                music.play(); 
+                btn.innerHTML = '<i class="fas fa-pause"></i>'; 
+            } else { 
+                music.pause(); 
+                btn.innerHTML = '<i class="fas fa-play"></i>'; 
+            }
+        }
+
+        function checkObjektif() {
+            let score = 0;
+            if(document.getElementById('q1a').checked) score++;
+            if(document.getElementById('q2b').checked) score++;
+            if(document.getElementById('q3b').checked) score++;
+            if(document.getElementById('q4a').checked) score++;
+            if(document.getElementById('q5a').checked) score++;
+            
+            document.getElementById('resObj').innerText = "Markah Bahagian A: " + score + "/5";
+        }
+
+        function checkSubjektif() {
+            let score = 0;
+            
+            // Soalan 6: <form action="proses.php">
+            let v6 = document.getElementById('s6').value.replace(/\s/g, '').toLowerCase();
+            if(v6.includes('<formaction="proses.php"')) {
+                score++; showFeedback('ans6', "Betul!", "var(--secondary)");
+            } else {
+                showFeedback('ans6', "Salah! Jawapan: <form action='proses.php'>", "var(--accent)");
+            }
+
+            // Soalan 7: <input type="text" name="username">
+            let v7 = document.getElementById('s7').value.replace(/\s/g, '').toLowerCase();
+            if(v7.includes('type="text"') && v7.includes('name="username"')) {
+                score++; showFeedback('ans7', "Betul!", "var(--secondary)");
+            } else {
+                showFeedback('ans7', "Salah! Jawapan: <input type='text' name='username'>", "var(--accent)");
+            }
+
+            // Soalan 8: <input type="submit">
+            let v8 = document.getElementById('s8').value.replace(/\s/g, '').toLowerCase();
+            if(v8.includes('type="submit"')) {
+                score++; showFeedback('ans8', "Betul!", "var(--secondary)");
+            } else {
+                showFeedback('ans8', "Salah! Jawapan: <input type='submit'>", "var(--accent)");
+            }
+
+            document.getElementById('resSub').innerText = "Markah Bahagian B: " + score + "/3";
+        }
+
+        function showFeedback(id, msg, color) {
+            let el = document.getElementById(id);
+            el.innerText = msg;
+            el.style.color = color;
+            el.style.marginTop = "10px";
+            el.style.fontWeight = "bold";
+        }
+    </script>
+</body>
+</html>

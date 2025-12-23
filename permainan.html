@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Permainan | ASK T3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="music-container">
+        <div class="music-info">
+            <span><i class="fas fa-music"></i> Audio System</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="bckgrnd.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <i class="fas fa-gamepad fa-3x" style="color: var(--secondary); margin-bottom: 10px;"></i>
+            <h1>Zon Permainan</h1>
+            <p>Pengukuhan Topik 4.1.6 Melalui Platform Digital</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
+        <a href="nota.html"><i class="fas fa-book-open"></i> NOTA</a>
+        <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
+        <a href="permainan.html" class="active"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
+    </nav>
+
+    <div class="container">
+        <h2><i class="fas fa-rocket"></i> Pilih Platform Pembelajaran</h2>
+        <p style="margin-bottom: 30px; color: #aaa;">Klik butang pada kad di bawah untuk membuka permainan dalam tab baharu.</p>
+
+        <div class="grid-games">
+            <div class="card-game">
+                <i class="fas fa-th-large fa-3x" style="color: #d32f2f;"></i>
+                <h3>Wordwall</h3>
+                <p>Kuiz interaktif, padanan, dan teka silang kata ASK.</p>
+                <a href="https://wordwall.net/ms-my/community/ask-tingkatan-3" target="_blank" class="btn">Main</a>
+            </div>
+
+            <div class="card-game">
+                <i class="fas fa-play-circle fa-3x" style="color: #46178f;"></i>
+                <h3>Kahoot!</h3>
+                <p>Pertandingan kuiz langsung yang mencabar dan pantas.</p>
+                <a href="https://kahoot.it/" target="_blank" class="btn">Pin Kod</a>
+            </div>
+
+            <div class="card-game">
+                <i class="fas fa-check-double fa-3x" style="color: #6d107a;"></i>
+                <h3>Quizizz</h3>
+                <p>Latihan kendiri bertema dengan avatar yang menarik.</p>
+                <a href="https://quizizz.com/join" target="_blank" class="btn">Mula</a>
+            </div>
+
+            <div class="card-game">
+                <i class="fas fa-puzzle-piece fa-3x" style="color: #2196f3;"></i>
+                <h3>LearningApps</h3>
+                <p>Aktiviti menyusun langkah kerja Form Wizard/Subform.</p>
+                <a href="https://learningapps.org/" target="_blank" class="btn">Teroka</a>
+            </div>
+
+            <div class="card-game">
+                <i class="fas fa-bolt fa-3x" style="color: #ff9800;"></i>
+                <h3>Baamboozle</h3>
+                <p>Permainan berpasukan yang menyeronokkan dengan sistem markah unik.</p>
+                <a href="https://www.baamboozle.com/games" target="_blank" class="btn">Cari Game</a>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 40px; background: rgba(0, 210, 255, 0.05);">
+            <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> <strong>Info Penting:</strong> Gunakan mod <em>landscape</em> jika anda bermain menggunakan telefon pintar untuk paparan yang lebih baik.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Portal Sains Komputer T3 | Sumber Pendidikan Digital
+    </footer>
+
+    <script>
+        // Ambil elemen audio
+        var music = document.getElementById("bgMusic");
+        
+        // Tetapkan volume kepada 0.025 (Sangat perlahan) secara automatik
+        music.volume = 0.025;
+
+        // Kawalan Muzik
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                music.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

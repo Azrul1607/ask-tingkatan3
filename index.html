@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utama | Portal ASK T3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="music-container">
+        <div class="music-info">
+            <span><i class="fas fa-music"></i> Ambient: Piano Relax</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="bckgrnd.mp3" type="audio/mpeg">
+            Penyemak imbas anda tidak menyokong elemen audio.
+        </audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <i class="fas fa-laptop-code fa-4x" style="color: var(--primary); margin-bottom: 20px;"></i>
+            <h1>Sains Komputer Tingkatan 3</h1>
+            <p>Eksplorasi Pangkalan Data & Pengaturcaraan Web</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active"><i class="fas fa-home"></i> UTAMA</a>
+        <a href="nota.html"><i class="fas fa-book-open"></i> NOTA</a>
+        <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
+        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
+    </nav>
+
+    <div class="container">
+        <section style="text-align: center; padding: 20px;">
+            <h2>Selamat Datang ke Modul 4.1.6</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">
+                Portal ini direka khas untuk membantu anda memahami bagaimana Borang (Form) berfungsi dalam 
+                menyambungkan pengguna dengan pangkalan data.
+            </p>
+
+            
+
+            <div class="grid-games">
+                <div class="card-game">
+                    <i class="fas fa-file-alt fa-3x" style="color: var(--primary);"></i>
+                    <h3>Nota Padat</h3>
+                    <p>Fahami konsep Form Wizard dan butang navigasi Microsoft Access.</p>
+                    <a href="nota.html" class="btn">Baca Nota</a>
+                </div>
+
+                <div class="card-game">
+                    <i class="fas fa-check-double fa-3x" style="color: var(--accent);"></i>
+                    <h3>Uji Minda</h3>
+                    <p>Sahut cabaran kuiz objektif dan subjektif kod HTML.</p>
+                    <a href="kuiz.html" class="btn">Mula Kuiz</a>
+                </div>
+
+                <div class="card-game">
+                    <i class="fas fa-gamepad fa-3x" style="color: var(--secondary);"></i>
+                    <h3>Zon Game</h3>
+                    <p>Belajar sambil bermain di platform interaktif luar.</p>
+                    <a href="permainan.html" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Main Sekarang</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="card" style="margin-top: 50px; border-left: 5px solid var(--accent);">
+            <h3><i class="fas fa-lightbulb"></i> Info Pembelajaran</h3>
+            <p>Dalam bab ini, anda akan belajar bagaimana atribut <strong>Action</strong> dan <strong>Method</strong> berfungsi dalam menghantar data borang ke pelayan (server).</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Portal ASK T3 | Dicipta untuk Tujuan Pendidikan Digital</p>
+    </footer>
+
+    <script>
+        // Ambil elemen audio
+        var music = document.getElementById("bgMusic");
+        
+        // Tetapkan volume kepada 20% (Perlahan) secara automatik
+        music.volume = 0.025; 
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                music.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+    </script>
+</body>
+</html>

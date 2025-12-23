@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota 4.1.6 | ASK T3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Container Video Responsif */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            margin: 20px 0;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="music-container">
+        <div class="music-info">
+            <span><i class="fas fa-music"></i> Audio System</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="bckgrnd.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <i class="fas fa-book-open fa-3x" style="color: var(--primary); margin-bottom: 10px;"></i>
+            <h1>Nota Pengurusan Data</h1>
+            <p>4.1.6 Menghasilkan Borang dan Memasukkan Data</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
+        <a href="nota.html" class="active"><i class="fas fa-book-open"></i> NOTA</a>
+        <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
+        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
+    </nav>
+
+    <div class="container">
+        
+        <section>
+            <h2><i class="fas fa-video"></i> Tutorial Microsoft Access</h2>
+            <p style="color: #aaa; margin-bottom: 15px;">Tonton video di bawah untuk panduan visual menghasilkan borang:</p>
+            
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/SrSHMCZQm8c" 
+                    title="Tutorial ASK T3" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        
+        <section style="margin-top: 40px;">
+            <h2><i class="fas fa-database"></i> Objek Pangkalan Data (Jadual 4.3)</h2>
+            <div class="card" style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jenis Objek</th>
+                            <th>Penerangan Kegunaan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><i class="fas fa-table"></i> Jadual (Table)</strong></td>
+                            <td>Simpan data mengikut rekod (baris) dan medan (lajur).</td>
+                        </tr>
+                        <tr>
+                            <td><strong><i class="fas fa-filter"></i> Pertanyaan (Query)</strong></td>
+                            <td>Mencari dan menapis data tertentu.</td>
+                        </tr>
+                        <tr>
+                            <td><strong><i class="fas fa-window-maximize"></i> Borang (Form)</strong></td>
+                            <td>Antara muka untuk input data yang mesra pengguna.</td>
+                        </tr>
+                        <tr>
+                            <td><strong><i class="fas fa-file-alt"></i> Laporan (Report)</strong></td>
+                            <td>Format data yang sedia untuk dicetak.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        
+        <section style="margin-top: 40px;">
+            <h2><i class="fas fa-magic"></i> Langkah Form Wizard</h2>
+            <div class="card">
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Klik tab <strong>Create</strong> > <strong>Form Wizard</strong>.</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Pilih jadual dan pindahkan medan (>>).</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Pilih susun atur <strong>Columnar</strong>.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Namakan borang dan klik <strong>Finish</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="margin-top: 40px;">
+            <h2><i class="fas fa-directions"></i> Butang Navigasi (Jadual 4.5)</h2>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ikon</th>
+                            <th>Fungsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><i class="fas fa-step-backward" style="color: var(--primary);"></i></td><td>Rekod Pertama</td></tr>
+                        <tr><td><i class="fas fa-caret-left" style="color: var(--primary);"></i></td><td>Rekod Sebelumnya</td></tr>
+                        <tr><td><i class="fas fa-caret-right" style="color: var(--primary);"></i></td><td>Rekod Berikutnya</td></tr>
+                        <tr><td><i class="fas fa-step-forward" style="color: var(--primary);"></i></td><td>Rekod Terakhir</td></tr>
+                        <tr><td><i class="fas fa-plus-square" style="color: var(--secondary);"></i></td><td>Rekod Baharu</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <div class="card" style="border-left: 5px solid var(--accent); background: rgba(255, 0, 122, 0.05); margin-top: 30px;">
+            <p><i class="fas fa-lightbulb" style="color: var(--accent);"></i> <strong>Tip:</strong> Borang memudahkan pengguna memasukkan data tanpa perlu membuka jadual asal.</p>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Portal ASK T3 | Disediakan untuk PdPR</footer>
+
+    <script>
+        var music = document.getElementById("bgMusic");
+        // Tetapkan volume sangat perlahan (0.025)
+        music.volume = 0.025;
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) { 
+                music.play(); 
+                btn.innerHTML = '<i class="fas fa-pause"></i>'; 
+            }
+            else { 
+                music.pause(); 
+                btn.innerHTML = '<i class="fas fa-play"></i>'; 
+            }
+        }
+    </script>
+</body>
+</html>

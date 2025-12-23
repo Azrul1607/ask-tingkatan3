@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Jawab | ASK T3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Gaya tambahan untuk butang platform */
+        .btn-platform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-platform:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        .btn-wa { background-color: #25D366; color: white; }
+        .btn-tg { background-color: #0088cc; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="music-container">
+        <div class="music-info">
+            <span><i class="fas fa-music"></i> Audio System</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="bckgrnd.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <i class="fas fa-comments fa-3x" style="color: var(--accent); margin-bottom: 10px;"></i>
+            <h1>Ruang Pertanyaan</h1>
+            <p>Pilih Platform Penghantaran Anda</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
+        <a href="nota.html"><i class="fas fa-book-open"></i> NOTA</a>
+        <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
+        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="soal-jawab.html" class="active"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2><i class="fas fa-share-nodes"></i> Hantar Soalan</h2>
+            <p style="margin-bottom: 25px; color: #aaa;">Isi borang dan pilih platform untuk menghubungi guru.</p>
+
+            <form id="borangSoalan">
+                <div class="card">
+                    <label for="nama"><i class="fas fa-user"></i> Nama Penuh:</label>
+                    <input type="text" id="nama" placeholder="Nama anda" required>
+
+                    <label for="kelas"><i class="fas fa-school"></i> Kelas:</label>
+                    <select id="kelas" required>
+                        <option value="">-- Pilih Kelas --</option>
+                        <option value="3 Amanah">3 Amanah</option>
+                        <option value="3 Bijak">3 Bijak</option>
+                        <option value="3 Cekap">3 Cekap</option>
+                        <option value="3 Dinamik">3 Dinamik</option>
+                    </select>
+
+                    <label for="soalan"><i class="fas fa-pen"></i> Pertanyaan:</label>
+                    <textarea id="soalan" rows="4" placeholder="Tulis soalan anda..." required></textarea>
+
+                    <div style="margin-top: 20px;">
+                        <p style="font-size: 0.9em; color: #aaa; margin-bottom: 10px;">Pilih cara penghantaran:</p>
+                        
+                        <button type="button" class="btn btn-platform btn-wa" onclick="hantar('whatsapp')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+
+                        <button type="button" class="btn btn-platform btn-tg" onclick="hantar('telegram')">
+                            <i class="fab fa-telegram-plane"></i> Telegram
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div id="notifikasi" class="card" style="display:none; border-left-color: var(--secondary); background: rgba(0, 255, 136, 0.05);">
+                <h3 style="color: var(--secondary);"><i class="fas fa-paper-plane"></i> Memproses...</h3>
+                <p id="paparanData" style="margin: 15px 0; color: #fff;"></p>
+                <button class="btn" onclick="window.location.reload()">Tulis Semula</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>&copy; 2025 Portal ASK T3</footer>
+
+    <script>
+        var music = document.getElementById("bgMusic");
+        music.volume = 0.025;
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) { music.play(); btn.innerHTML = '<i class="fas fa-pause"></i>'; }
+            else { music.pause(); btn.innerHTML = '<i class="fas fa-play"></i>'; }
+        }
+
+        function hantar(platform) {
+            const nama = document.getElementById('nama').value;
+            const kelas = document.getElementById('kelas').value;
+            const soalan = document.getElementById('soalan').value;
+
+            // --- TETAPAN GURU ---
+            const noWA = "601165635788"; // Ganti dengan no WhatsApp anda
+            const usernameTG = "Azrul1607"; // Ganti dengan Username Telegram anda (tanpa @)
+
+            if (!nama || !kelas || !soalan) {
+                alert("Lengkapkan borang terlebih dahulu!");
+                return;
+            }
+
+            const mesej = `Salam Cikgu, saya *${nama}* (${kelas}).\n\nSoalan: ${soalan}`;
+            let url = "";
+
+            if (platform === 'whatsapp') {
+                url = `https://wa.me/${noWA}?text=${encodeURIComponent(mesej)}`;
+            } else {
+                url = `https://t.me/${usernameTG}?text=${encodeURIComponent(mesej)}`;
+            }
+
+            document.getElementById('borangSoalan').style.display = 'none';
+            document.getElementById('notifikasi').style.display = 'block';
+            document.getElementById('paparanData').innerText = `Membuka ${platform}...`;
+
+            setTimeout(() => { window.open(url, '_blank'); }, 800);
+        }
+    </script>
+</body>
+</html>
