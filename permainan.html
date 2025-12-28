@@ -74,7 +74,7 @@
                 <i class="fas fa-bolt fa-3x" style="color: #ff9800;"></i>
                 <h3>Baamboozle</h3>
                 <p>Permainan berpasukan yang menyeronokkan dengan sistem markah unik.</p>
-                <a href="https://www.baamboozle.com/games" target="_blank" class="btn">Cari Game</a>
+                <a href="https://www.baamboozle.com/pin" target="_blank" class="btn">MULA</a>
             </div>
         </div>
 
@@ -88,23 +88,38 @@
     </footer>
 
     <script>
-        // Ambil elemen audio
-        var music = document.getElementById("bgMusic");
-        
-        // Tetapkan volume kepada 0.025 (Sangat perlahan) secara automatik
-        music.volume = 0.025;
+       var music = document.getElementById("bgMusic");
+    music.volume = 0.025; // Tetapkan volume sangat perlahan
 
-        // Kawalan Muzik
-        function toggleMusic() {
-            var btn = document.getElementById("musicBtn");
-            if (music.paused) {
-                music.play();
-                btn.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                music.pause();
-                btn.innerHTML = '<i class="fas fa-play"></i>';
-            }
+    // Fungsi untuk mainkan muzik
+    function playMusic() {
+        music.play().then(() => {
+            // Jika berjaya dimainkan, tukar ikon butang ke 'pause'
+            document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
+            
+            // Buang 'listener' selepas muzik mula dimainkan sekali
+            document.removeEventListener('click', playMusic);
+            document.removeEventListener('touchstart', playMusic);
+        }).catch((error) => {
+            console.log("Autoplay disekat. Menunggu klik pengguna.");
+        });
+    }
+
+    // Muslihat: Muzik akan mula dimainkan sebaik sahaja murid klik atau sentuh skrin
+    document.addEventListener('click', playMusic);
+    document.addEventListener('touchstart', playMusic);
+
+    // Fungsi asal butang untuk kawalan manual
+    function toggleMusic() {
+        var btn = document.getElementById("musicBtn");
+        if (music.paused) {
+            music.play();
+            btn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            music.pause();
+            btn.innerHTML = '<i class="fas fa-play"></i>';
         }
+    }
     </script>
 </body>
 </html>
