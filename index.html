@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utama | Portal ASK T3</title>
+    <title>Portal ASK T3 | Utama</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,22 +11,25 @@
 
     <div class="music-container">
         <div class="music-info">
-            <span><i class="fas fa-music"></i> Ambient: Piano Relax</span>
+            <span><i class="fas fa-music"></i> Audio System</span>
         </div>
         <audio id="bgMusic" loop>
             <source src="bckgrnd.mp3" type="audio/mpeg">
-            Penyemak imbas anda tidak menyokong elemen audio.
         </audio>
         <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
             <i class="fas fa-play"></i>
         </button>
     </div>
 
+    <audio id="clickSound" preload="auto">
+        <source src="click.mp3" type="audio/mpeg">
+    </audio>
+
     <header>
         <div class="header-content">
             <i class="fas fa-laptop-code fa-4x" style="color: var(--primary); margin-bottom: 20px;"></i>
-            <h1>Sains Komputer Tingkatan 3</h1>
-            <p>Eksplorasi Pangkalan Data & Pengaturcaraan Web</p>
+            <h1>Portal Pembelajaran ASK</h1>
+            <p>Sains Komputer Tingkatan 3 | Bab 4: Pengurusan Data</p>
         </div>
     </header>
 
@@ -39,67 +42,78 @@
     </nav>
 
     <div class="container">
-        <section style="text-align: center; padding: 20px;">
-            <h2>Selamat Datang ke Modul 4.1.6</h2>
-            <p style="margin-bottom: 30px; color: var(--text-muted);">
-                Portal ini direka khas untuk membantu anda memahami bagaimana Borang (Form) berfungsi dalam 
-                menyambungkan pengguna dengan pangkalan data.
-            </p>
-
-            
-
-            <div class="grid-games">
-                <div class="card-game">
-                    <i class="fas fa-file-alt fa-3x" style="color: var(--primary);"></i>
-                    <h3>Nota Padat</h3>
-                    <p>Fahami konsep Form Wizard dan butang navigasi Microsoft Access.</p>
-                    <a href="nota.html" class="btn">Baca Nota</a>
-                </div>
-
-                <div class="card-game">
-                    <i class="fas fa-check-double fa-3x" style="color: var(--accent);"></i>
-                    <h3>Uji Minda</h3>
-                    <p>Sahut cabaran kuiz objektif dan subjektif kod HTML.</p>
-                    <a href="kuiz.html" class="btn">Mula Kuiz</a>
-                </div>
-
-                <div class="card-game">
-                    <i class="fas fa-gamepad fa-3x" style="color: var(--secondary);"></i>
-                    <h3>Zon Game</h3>
-                    <p>Belajar sambil bermain di platform interaktif luar.</p>
-                    <a href="permainan.html" class="btn" style="border-color: var(--secondary); color: var(--secondary);">Main Sekarang</a>
+        <section class="hero-section">
+            <div class="card" style="text-align: center; padding: 40px;">
+                <h2>Selamat Datang ke Hub Digital ASK</h2>
+                <p>Eksplorasi topik <strong>4.1.6 Menghasilkan Borang dan Memasukkan Data</strong> dengan cara yang lebih interaktif dan menyeronokkan.</p>
+                <div style="margin-top: 30px;">
+                    <a href="nota.html" class="btn"><i class="fas fa-rocket"></i> Mula Belajar</a>
                 </div>
             </div>
         </section>
 
-        <div class="card" style="margin-top: 50px; border-left: 5px solid var(--accent);">
-            <h3><i class="fas fa-lightbulb"></i> Info Pembelajaran</h3>
-            <p>Dalam bab ini, anda akan belajar bagaimana atribut <strong>Action</strong> dan <strong>Method</strong> berfungsi dalam menghantar data borang ke pelayan (server).</p>
+        <div class="grid-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+            <div class="card feature-card">
+                <i class="fas fa-file-invoice fa-2x" style="color: var(--secondary);"></i>
+                <h3>Borang Wizard</h3>
+                <p>Pelajari cara membina borang secara automatik dalam Microsoft Access.</p>
+            </div>
+            <div class="card feature-card">
+                <i class="fas fa-mouse-pointer fa-2x" style="color: var(--accent);"></i>
+                <h3>Navigasi Rekod</h3>
+                <p>Kuasai fungsi butang navigasi untuk pengurusan data yang cekap.</p>
+            </div>
+            <div class="card feature-card">
+                <i class="fas fa-database fa-2x" style="color: var(--primary);"></i>
+                <h3>Integriti Data</h3>
+                <p>Memastikan data yang dimasukkan melalui borang disimpan dengan tepat.</p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Portal ASK T3 | Dicipta untuk Tujuan Pendidikan Digital</p>
+        &copy; 2025 Portal ASK Tingkatan 3 | Sumber Pendidikan Digital
     </footer>
 
     <script>
-        // Ambil elemen audio
-        var music = document.getElementById("bgMusic");
-        
-        // Tetapkan volume kepada 20% (Perlahan) secara automatik
-        music.volume = 0.025; 
+        // 1. Kawalan Muzik Latar
+        const bgMusic = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        bgMusic.volume = 0.025; // Volume sangat perlahan
+
+        function playOnFirstClick() {
+            bgMusic.play().then(() => {
+                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                document.removeEventListener('click', playOnFirstClick);
+            }).catch(e => console.log("Menunggu interaksi..."));
+        }
+
+        document.addEventListener('click', playOnFirstClick);
 
         function toggleMusic() {
-            var btn = document.getElementById("musicBtn");
-            
-            if (music.paused) {
-                music.play();
-                btn.innerHTML = '<i class="fas fa-pause"></i>';
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
             } else {
-                music.pause();
-                btn.innerHTML = '<i class="fas fa-play"></i>';
+                bgMusic.pause();
+                musicBtn.innerHTML = '<i class="fas fa-play"></i>';
             }
         }
+
+        // 2. Kesan Bunyi Klik (Cursor Hover)
+        const clickSound = document.getElementById("clickSound");
+        clickSound.volume = 0.2; // Volume bunyi klik lebih jelas
+
+        // Pilih semua elemen interaktif
+        const interactiveItems = document.querySelectorAll('.card, .btn, nav a, .feature-card');
+
+        interactiveItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                clickSound.currentTime = 0; // Reset bunyi ke awal
+                clickSound.play().catch(e => {}); 
+            });
+        });
     </script>
+
 </body>
 </html>
