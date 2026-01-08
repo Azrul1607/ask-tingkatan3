@@ -33,7 +33,7 @@
         <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
         <a href="nota.html" class="active"><i class="fas fa-book-open"></i> NOTA</a>
         <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
-        <a href="permainan.html" ><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
         <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
     </nav>
 
@@ -83,6 +83,7 @@
             </div>
 
             <h2 style="margin-top: 40px;"><i class="fas fa-sync-alt"></i> Aliran Proses</h2>
+            
             <div class="process-flow">
                 <div class="flow-card">
                     <i class="fas fa-user-edit"></i>
@@ -103,7 +104,7 @@
 
         <section class="card">
             <h2><i class="fas fa-directions"></i> Butang Navigasi Borang</h2>
-            <p style="color: var(--text-muted); margin-bottom: 15px;">Digunakan untuk mengemudi antara rekod dalam pangkalan data.</p>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">Ikon standard yang digunakan dalam perisian pangkalan data:</p>
             <div class="table-container">
                 <table>
                     <thead>
@@ -125,46 +126,40 @@
 
         <section class="card">
             <h2><i class="fab fa-youtube"></i> Tutorial Video</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Tonton video berikut untuk memahami cara menghasilkan borang secara praktikal:</p>
-            
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Rujuk tutorial praktikal di bawah:</p>
             <div class="importance-grid">
                 <div class="importance-item">
                     <i class="fas fa-video fa-2x" style="color: #ff0000; margin-bottom: 10px;"></i>
                     <h4>Asas Borang</h4>
-                    <p><small>Cara membina borang ringkas.</small></p>
                     <a href="https://www.youtube.com/results?search_query=ask+t3+menghasilkan+borang" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
                 <div class="importance-item">
                     <i class="fas fa-edit fa-2x" style="color: var(--secondary); margin-bottom: 10px;"></i>
                     <h4>Kemasukan Data</h4>
-                    <p><small>Teknik memasukkan rekod murid.</small></p>
                     <a href="https://www.youtube.com/results?search_query=microsoft+access+form+entry+tutorial" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
                 <div class="importance-item">
                     <i class="fas fa-cogs fa-2x" style="color: var(--primary); margin-bottom: 10px;"></i>
-                    <h4>Navigasi & Butang</h4>
-                    <p><small>Fungsi butang kawalan borang.</small></p>
+                    <h4>Navigasi</h4>
                     <a href="https://www.youtube.com/results?search_query=access+form+navigation+buttons" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
             </div>
         </section>
 
         <section class="summary-card">
-            <i class="fas fa-archway bridge-icon"></i>
+            <i class="fas fa-archway bridge-icon" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
             <h2>Rumusan Utama</h2>
             <p style="font-size: 1.2rem;"><strong>BORANG = JAMBATAN DATA</strong></p>
-            <p>Menghubungkan <strong>Pengguna</strong> dengan <strong>Pangkalan Data</strong> untuk pengurusan maklumat yang efisien.</p>
+            <p>Menghubungkan <strong>Pengguna</strong> dengan <strong>Pangkalan Data</strong>.</p>
         </section>
 
         <section class="activity-card">
             <h2><i class="fas fa-tasks"></i> Aktiviti Pengukuhan</h2>
-            <p>Selesaikan tugasan amali berikut:</p>
             <ol style="margin-left: 20px; margin-top: 10px;">
-                <li>Bina <strong>Borang MURID</strong> menggunakan perisian pangkalan data anda (Contoh: MS Access atau LibreOffice Base).</li>
-                <li>Masukkan <strong>5 Data Baharu</strong> melalui borang tersebut dan semak hasilnya dalam jadual.</li>
+                <li>Bina <strong>Borang MURID</strong> dalam MS Access/LibreOffice.</li>
+                <li>Masukkan <strong>5 rekod</strong> melalui borang tersebut.</li>
             </ol>
         </section>
-
     </div>
 
     <footer>&copy; 2026 Portal ASK T3 | Inspirasi Teknologi Pendidikan</footer>
@@ -177,10 +172,12 @@
             music.play().then(() => {
                 document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
                 document.removeEventListener('click', playMusic);
-            });
+                document.removeEventListener('touchstart', playMusic);
+            }).catch(e => console.log("Muzik memerlukan interaksi pengguna."));
         }
         
         document.addEventListener('click', playMusic);
+        document.addEventListener('touchstart', playMusic);
         
         function toggleMusic() {
             var btn = document.getElementById("musicBtn");
