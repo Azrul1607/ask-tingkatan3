@@ -6,27 +6,6 @@
     <title>Nota 4.1.6 | ASK T3</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Container Video Responsif */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-            margin: 20px 0;
-            background: #000;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -44,7 +23,7 @@
 
     <header>
         <div class="header-content">
-            <i class="fas fa-book-open fa-3x" style="color: var(--primary); margin-bottom: 10px;"></i>
+            <i class="fas fa-book-open fa-3x" style="color: #00d2ff; margin-bottom: 10px;"></i>
             <h1>Nota Pengurusan Data</h1>
             <p>4.1.6 Menghasilkan Borang dan Memasukkan Data</p>
         </div>
@@ -54,112 +33,161 @@
         <a href="index.html"><i class="fas fa-home"></i> UTAMA</a>
         <a href="nota.html" class="active"><i class="fas fa-book-open"></i> NOTA</a>
         <a href="kuiz.html"><i class="fas fa-pencil-alt"></i> KUIZ</a>
-        <a href="permainan.html"><i class="fas fa-gamepad"></i> PERMAINAN</a>
+        <a href="permainan.html" ><i class="fas fa-gamepad"></i> PERMAINAN</a>
         <a href="soal-jawab.html"><i class="fas fa-question-circle"></i> SOAL JAWAB</a>
     </nav>
 
     <div class="container">
         
-        <section>
-            <h2><i class="fas fa-video"></i> Tutorial Microsoft Access</h2>
-            <p style="color: #aaa; margin-bottom: 15px;">Tonton video di bawah untuk panduan visual menghasilkan borang:</p>
+        <section class="card">
+            <h2><i class="fas fa-info-circle"></i> Fungsi Utama Borang</h2>
+            <p style="color: var(--text-muted);">Borang (Form) digunakan sebagai alat utama untuk melakukan <strong>Input Data</strong> ke dalam sistem.</p>
             
-            <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/SrSHMCZQm8c" 
-                    title="Tutorial ASK T3" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
+            <div class="importance-grid">
+                <div class="importance-item">
+                    <i class="fas fa-smile fa-3x" style="color: #ffbd03;"></i>
+                    <h3>Mesra Pengguna</h3>
+                    <p>Memudahkan interaksi antara pengguna dan pangkalan data.</p>
+                </div>
+                <div class="importance-item">
+                    <i class="fas fa-shield-alt fa-3x" style="color: var(--primary);"></i>
+                    <h3>Mengurangkan Ralat</h3>
+                    <p>Menjamin ketepatan maklumat semasa proses kemasukan data.</p>
+                </div>
             </div>
         </section>
 
-        
-        <section style="margin-top: 40px;">
-            <h2><i class="fas fa-database"></i> Objek Pangkalan Data (Jadual 4.3)</h2>
-            <div class="card" style="overflow-x:auto;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Jenis Objek</th>
-                            <th>Penerangan Kegunaan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong><i class="fas fa-table"></i> Jadual (Table)</strong></td>
-                            <td>Simpan data mengikut rekod (baris) dan medan (lajur).</td>
-                        </tr>
-                        <tr>
-                            <td><strong><i class="fas fa-filter"></i> Pertanyaan (Query)</strong></td>
-                            <td>Mencari dan menapis data tertentu.</td>
-                        </tr>
-                        <tr>
-                            <td><strong><i class="fas fa-window-maximize"></i> Borang (Form)</strong></td>
-                            <td>Antara muka untuk input data yang mesra pengguna.</td>
-                        </tr>
-                        <tr>
-                            <td><strong><i class="fas fa-file-alt"></i> Laporan (Report)</strong></td>
-                            <td>Format data yang sedia untuk dicetak.</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section class="card">
+            <h2><i class="fas fa-balance-scale"></i> Perbezaan Borang & Jadual</h2>
+            <p style="color: var(--text-muted);">Memasukkan data melalui borang adalah lebih selamat dan sistematik.</p>
+            
+            <div class="comparison-container">
+                <div class="comp-box">
+                    <h3 class="status-good"><i class="fas fa-check-circle"></i> Menggunakan Borang</h3>
+                    <p>Rekod dipaparkan secara individu (satu demi satu), mengurangkan kekeliruan.</p>
+                </div>
+                <div class="comp-box">
+                    <h3 class="status-bad"><i class="fas fa-times-circle"></i> Menggunakan Jadual</h3>
+                    <p>Data dipaparkan secara berkelompok (baris/lajur), mudah tersilap taip.</p>
+                </div>
             </div>
         </section>
 
-        
-        <section style="margin-top: 40px;">
-            <h2><i class="fas fa-magic"></i> Langkah Form Wizard</h2>
-            <div class="card">
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Klik tab <strong>Create</strong> > <strong>Form Wizard</strong>.</li>
-                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Pilih jadual dan pindahkan medan (>>).</li>
-                    <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Pilih susun atur <strong>Columnar</strong>.</li>
-                    <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Namakan borang dan klik <strong>Finish</strong>.</li>
-                </ul>
+        <section class="card">
+            <h2><i class="fas fa-list-ul"></i> Elemen Utama dalam Borang</h2>
+            <div class="importance-grid">
+                <div class="importance-item"><strong>Label</strong><br><small>Nama medan data</small></div>
+                <div class="importance-item"><strong>Kotak Teks</strong><br><small>Ruang input data</small></div>
+                <div class="importance-item"><strong>Butang Arahan</strong><br><small>Menjalankan fungsi</small></div>
+                <div class="importance-item"><strong>Menu Jatuh</strong><br><small>Senarai pilihan</small></div>
+            </div>
+
+            <h2 style="margin-top: 40px;"><i class="fas fa-sync-alt"></i> Aliran Proses</h2>
+            <div class="process-flow">
+                <div class="flow-card">
+                    <i class="fas fa-user-edit"></i>
+                    <p>Pengguna Mengisi Borang</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-card">
+                    <i class="fas fa-code"></i>
+                    <p>Sistem Menjalankan SQL</p>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-card">
+                    <i class="fas fa-database"></i>
+                    <p>Data Disimpan Permanen</p>
+                </div>
             </div>
         </section>
 
-        <section style="margin-top: 40px;">
-            <h2><i class="fas fa-directions"></i> Butang Navigasi (Jadual 4.5)</h2>
-            <div class="card">
+        <section class="card">
+            <h2><i class="fas fa-directions"></i> Butang Navigasi Borang</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">Digunakan untuk mengemudi antara rekod dalam pangkalan data.</p>
+            <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>Ikon</th>
-                            <th>Fungsi</th>
+                            <th>Fungsi Navigasi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><i class="fas fa-step-backward" style="color: var(--primary);"></i></td><td>Rekod Pertama</td></tr>
-                        <tr><td><i class="fas fa-caret-left" style="color: var(--primary);"></i></td><td>Rekod Sebelumnya</td></tr>
-                        <tr><td><i class="fas fa-caret-right" style="color: var(--primary);"></i></td><td>Rekod Berikutnya</td></tr>
-                        <tr><td><i class="fas fa-step-forward" style="color: var(--primary);"></i></td><td>Rekod Terakhir</td></tr>
-                        <tr><td><i class="fas fa-plus-square" style="color: var(--secondary);"></i></td><td>Rekod Baharu</td></tr>
+                        <tr><td><i class="fas fa-step-backward"></i></td><td>Rekod Pertama</td></tr>
+                        <tr><td><i class="fas fa-caret-left"></i></td><td>Rekod Sebelumnya</td></tr>
+                        <tr><td><i class="fas fa-caret-right"></i></td><td>Rekod Berikutnya</td></tr>
+                        <tr><td><i class="fas fa-step-forward"></i></td><td>Rekod Terakhir</td></tr>
+                        <tr><td><i class="fas fa-plus-square"></i></td><td>Tambah Rekod Baharu</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
-        
-        <div class="card" style="border-left: 5px solid var(--accent); background: rgba(255, 0, 122, 0.05); margin-top: 30px;">
-            <p><i class="fas fa-lightbulb" style="color: var(--accent);"></i> <strong>Tip:</strong> Borang memudahkan pengguna memasukkan data tanpa perlu membuka jadual asal.</p>
-        </div>
+
+        <section class="card">
+            <h2><i class="fab fa-youtube"></i> Tutorial Video</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Tonton video berikut untuk memahami cara menghasilkan borang secara praktikal:</p>
+            
+            <div class="importance-grid">
+                <div class="importance-item">
+                    <i class="fas fa-video fa-2x" style="color: #ff0000; margin-bottom: 10px;"></i>
+                    <h4>Asas Borang</h4>
+                    <p><small>Cara membina borang ringkas.</small></p>
+                    <a href="https://www.youtube.com/results?search_query=ask+t3+menghasilkan+borang" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                </div>
+                <div class="importance-item">
+                    <i class="fas fa-edit fa-2x" style="color: var(--secondary); margin-bottom: 10px;"></i>
+                    <h4>Kemasukan Data</h4>
+                    <p><small>Teknik memasukkan rekod murid.</small></p>
+                    <a href="https://www.youtube.com/results?search_query=microsoft+access+form+entry+tutorial" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                </div>
+                <div class="importance-item">
+                    <i class="fas fa-cogs fa-2x" style="color: var(--primary); margin-bottom: 10px;"></i>
+                    <h4>Navigasi & Butang</h4>
+                    <p><small>Fungsi butang kawalan borang.</small></p>
+                    <a href="https://www.youtube.com/results?search_query=access+form+navigation+buttons" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="summary-card">
+            <i class="fas fa-archway bridge-icon"></i>
+            <h2>Rumusan Utama</h2>
+            <p style="font-size: 1.2rem;"><strong>BORANG = JAMBATAN DATA</strong></p>
+            <p>Menghubungkan <strong>Pengguna</strong> dengan <strong>Pangkalan Data</strong> untuk pengurusan maklumat yang efisien.</p>
+        </section>
+
+        <section class="activity-card">
+            <h2><i class="fas fa-tasks"></i> Aktiviti Pengukuhan</h2>
+            <p>Selesaikan tugasan amali berikut:</p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Bina <strong>Borang MURID</strong> menggunakan perisian pangkalan data anda (Contoh: MS Access atau LibreOffice Base).</li>
+                <li>Masukkan <strong>5 Data Baharu</strong> melalui borang tersebut dan semak hasilnya dalam jadual.</li>
+            </ol>
+        </section>
+
     </div>
 
-    <footer>&copy; 2025 Portal ASK T3 | Disediakan untuk PdPR</footer>
+    <footer>&copy; 2026 Portal ASK T3 | Inspirasi Teknologi Pendidikan</footer>
 
     <script>
         var music = document.getElementById("bgMusic");
-        // Tetapkan volume sangat perlahan (0.025)
-        music.volume = 0.025;
-
+        music.volume = 0.025; 
+        
+        function playMusic() {
+            music.play().then(() => {
+                document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
+                document.removeEventListener('click', playMusic);
+            });
+        }
+        
+        document.addEventListener('click', playMusic);
+        
         function toggleMusic() {
             var btn = document.getElementById("musicBtn");
             if (music.paused) { 
                 music.play(); 
                 btn.innerHTML = '<i class="fas fa-pause"></i>'; 
-            }
-            else { 
+            } else { 
                 music.pause(); 
                 btn.innerHTML = '<i class="fas fa-play"></i>'; 
             }
