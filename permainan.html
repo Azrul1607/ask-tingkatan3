@@ -39,87 +39,91 @@
 
     <div class="container">
         <h2><i class="fas fa-rocket"></i> Pilih Platform Pembelajaran</h2>
-        <p style="margin-bottom: 30px; color: #aaa;">Klik butang pada kad di bawah untuk membuka permainan dalam tab baharu.</p>
+        <p style="margin-bottom: 30px; color: var(--text-muted);">Klik butang pada kad di bawah untuk membuka permainan dalam tab baharu.</p>
 
         <div class="grid-games">
             <div class="card-game">
-                <i class="fas fa-th-large fa-3x" style="color: #d32f2f;"></i>
+                <div style="margin-bottom: 15px;">
+                    <i class="fas fa-th-large fa-3x" style="color: #d32f2f;"></i>
+                </div>
                 <h3>Wordwall</h3>
                 <p>Kuiz interaktif, padanan, dan teka silang kata ASK.</p>
                 <a href="https://wordwall.net/ms-my/community/ask-tingkatan-3" target="_blank" class="btn">Main</a>
             </div>
 
             <div class="card-game">
-                <i class="fas fa-play-circle fa-3x" style="color: #46178f;"></i>
+                <div style="margin-bottom: 15px;">
+                    <i class="fas fa-play-circle fa-3x" style="color: #46178f;"></i>
+                </div>
                 <h3>Kahoot!</h3>
                 <p>Pertandingan kuiz langsung yang mencabar dan pantas.</p>
                 <a href="https://kahoot.it/" target="_blank" class="btn">Pin Kod</a>
             </div>
 
             <div class="card-game">
-                <i class="fas fa-check-double fa-3x" style="color: #6d107a;"></i>
+                <div style="margin-bottom: 15px;">
+                    <i class="fas fa-check-double fa-3x" style="color: #6d107a;"></i>
+                </div>
                 <h3>Quizizz</h3>
                 <p>Latihan kendiri bertema dengan avatar yang menarik.</p>
                 <a href="https://quizizz.com/join" target="_blank" class="btn">Mula</a>
             </div>
 
             <div class="card-game">
-                <i class="fas fa-puzzle-piece fa-3x" style="color: #2196f3;"></i>
+                <div style="margin-bottom: 15px;">
+                    <i class="fas fa-puzzle-piece fa-3x" style="color: #2196f3;"></i>
+                </div>
                 <h3>LearningApps</h3>
                 <p>Aktiviti menyusun langkah kerja Form Wizard/Subform.</p>
                 <a href="https://learningapps.org/" target="_blank" class="btn">Teroka</a>
             </div>
 
             <div class="card-game">
-                <i class="fas fa-bolt fa-3x" style="color: #ff9800;"></i>
+                <div style="margin-bottom: 15px;">
+                    <i class="fas fa-bolt fa-3x" style="color: #ff9800;"></i>
+                </div>
                 <h3>Baamboozle</h3>
-                <p>Permainan berpasukan yang menyeronokkan dengan sistem markah unik.</p>
+                <p>Permainan berpasukan dengan sistem markah unik.</p>
                 <a href="https://www.baamboozle.com/pin" target="_blank" class="btn">MULA</a>
             </div>
         </div>
 
-        <div class="card" style="margin-top: 40px; background: rgba(0, 210, 255, 0.05);">
+        <div class="card" style="margin-top: 40px; border-left: 5px solid var(--primary);">
             <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> <strong>Info Penting:</strong> Gunakan mod <em>landscape</em> jika anda bermain menggunakan telefon pintar untuk paparan yang lebih baik.</p>
         </div>
     </div>
 
     <footer>
-        &copy; 2025 Portal Sains Komputer T3 | Sumber Pendidikan Digital
+        &copy; 2026 Portal Sains Komputer T3 | Sumber Pendidikan Digital
     </footer>
 
     <script>
-       var music = document.getElementById("bgMusic");
-    music.volume = 0.025; // Tetapkan volume sangat perlahan
+        var music = document.getElementById("bgMusic");
+        music.volume = 0.025;
 
-    // Fungsi untuk mainkan muzik
-    function playMusic() {
-        music.play().then(() => {
-            // Jika berjaya dimainkan, tukar ikon butang ke 'pause'
-            document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
-            
-            // Buang 'listener' selepas muzik mula dimainkan sekali
-            document.removeEventListener('click', playMusic);
-            document.removeEventListener('touchstart', playMusic);
-        }).catch((error) => {
-            console.log("Autoplay disekat. Menunggu klik pengguna.");
-        });
-    }
-
-    // Muslihat: Muzik akan mula dimainkan sebaik sahaja murid klik atau sentuh skrin
-    document.addEventListener('click', playMusic);
-    document.addEventListener('touchstart', playMusic);
-
-    // Fungsi asal butang untuk kawalan manual
-    function toggleMusic() {
-        var btn = document.getElementById("musicBtn");
-        if (music.paused) {
-            music.play();
-            btn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            music.pause();
-            btn.innerHTML = '<i class="fas fa-play"></i>';
+        function playMusic() {
+            music.play().then(() => {
+                document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
+                document.removeEventListener('click', playMusic);
+                document.removeEventListener('touchstart', playMusic);
+            }).catch((error) => {
+                console.log("Autoplay disekat.");
+            });
         }
-    }
+
+        document.addEventListener('click', playMusic);
+        document.addEventListener('touchstart', playMusic);
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                music.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
     </script>
 </body>
 </html>
