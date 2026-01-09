@@ -82,6 +82,14 @@
     </footer>
 
     <script>
+        window.addEventListener("load", function() {
+        const loader = document.getElementById("loader-wrapper");
+        
+        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
+        setTimeout(() => {
+            loader.classList.add("loader-hidden");
+        }, 500);
+    });
         // 1. Kawalan Muzik Latar
         const bgMusic = document.getElementById("bgMusic");
         const musicBtn = document.getElementById("musicBtn");
@@ -123,4 +131,5 @@
 
 </body>
 </html>
+
 
