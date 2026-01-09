@@ -26,6 +26,12 @@
     </style>
 </head>
 <body>
+    <div id="loader-wrapper">
+    <div class="loader-content">
+        <div class="neon-circle"></div>
+        <div class="loader-text">MEMUATKAN DATA...</div>
+    </div>
+</div>
 
     <div class="music-container">
         <div class="music-info">
@@ -102,6 +108,14 @@
     <footer>&copy; 2025 Portal ASK T3</footer>
 
     <script>
+        window.addEventListener("load", function() {
+        const loader = document.getElementById("loader-wrapper");
+        
+        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
+        setTimeout(() => {
+            loader.classList.add("loader-hidden");
+        }, 500);
+    });
         var music = document.getElementById("bgMusic");
         music.volume = 0.025;
 
@@ -142,4 +156,5 @@
         }
     </script>
 </body>
+
 </html>
