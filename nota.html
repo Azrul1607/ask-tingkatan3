@@ -8,13 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div id="loader-wrapper">
-    <div class="loader-content">
-        <div class="neon-circle"></div>
-        <div class="loader-text">MEMUATKAN DATA...</div>
-    </div>
-</div>
-    
 
     <div class="music-container">
         <div class="music-info">
@@ -64,6 +57,52 @@
             </div>
         </section>
 
+        <section class="card audio-note-card">
+            <h2><i class="fas fa-headphones"></i> Koleksi Nota Audio</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Sila skrol di dalam kotak di bawah untuk mendengar semua nota.</p>
+            
+            <div class="audio-scroll-container">
+                <div class="audio-player-box">
+                    <div class="audio-info">
+                        <i class="fas fa-microphone-alt fa-2x" style="color: var(--primary);"></i>
+                        <div>
+                            <strong>Penerangan 1: Asas Borang</strong>
+                            <p><small>Definisi dan Fungsi</small></p>
+                        </div>
+                    </div>
+                    <audio controls class="custom-audio-player">
+                        <source src="audio-asas-borang.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="audio-player-box">
+                    <div class="audio-info">
+                        <i class="fas fa-layer-group fa-2x" style="color: var(--secondary);"></i>
+                        <div>
+                            <strong>Penerangan 2: Komponen</strong>
+                            <p><small>Label, Kotak Teks & Butang</small></p>
+                        </div>
+                    </div>
+                    <audio controls class="custom-audio-player">
+                        <source src="audio-komponen.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+
+                <div class="audio-player-box">
+                    <div class="audio-info">
+                        <i class="fas fa-check-double fa-2x" style="color: var(--accent);"></i>
+                        <div>
+                            <strong>Penerangan 3: Integriti Data</strong>
+                            <p><small>Kawalan ralat kemasukan data</small></p>
+                        </div>
+                    </div>
+                    <audio controls class="custom-audio-player">
+                        <source src="audio-integriti.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </section>
+
         <section class="card">
             <h2><i class="fas fa-balance-scale"></i> Perbezaan Borang & Jadual</h2>
             <p style="color: var(--text-muted);">Memasukkan data melalui borang adalah lebih selamat dan sistematik.</p>
@@ -91,6 +130,8 @@
 
             <h2 style="margin-top: 40px;"><i class="fas fa-sync-alt"></i> Aliran Proses</h2>
             
+            
+            
             <div class="process-flow">
                 <div class="flow-card">
                     <i class="fas fa-user-edit"></i>
@@ -111,7 +152,6 @@
 
         <section class="card">
             <h2><i class="fas fa-directions"></i> Butang Navigasi Borang</h2>
-            <p style="color: var(--text-muted); margin-bottom: 15px;">Ikon standard yang digunakan dalam perisian pangkalan data:</p>
             <div class="table-container">
                 <table>
                     <thead>
@@ -133,22 +173,21 @@
 
         <section class="card">
             <h2><i class="fab fa-youtube"></i> Tutorial Video</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Rujuk tutorial praktikal di bawah:</p>
             <div class="importance-grid">
                 <div class="importance-item">
                     <i class="fas fa-video fa-2x" style="color: #ff0000; margin-bottom: 10px;"></i>
                     <h4>Asas Borang</h4>
-                    <a href="https://youtu.be/AwjkubidA_g?si=H8ozKw6HYFSCd96Y" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                    <a href="https://www.youtube.com/results?search_query=ask+t3+menghasilkan+borang" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
                 <div class="importance-item">
                     <i class="fas fa-edit fa-2x" style="color: var(--secondary); margin-bottom: 10px;"></i>
                     <h4>Kemasukan Data</h4>
-                    <a href="https://youtu.be/tvzNeFCesl8?si=VSg3GhWPLFwnn4R1" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                    <a href="https://www.youtube.com/results?search_query=microsoft+access+form+entry+tutorial" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
                 <div class="importance-item">
                     <i class="fas fa-cogs fa-2x" style="color: var(--primary); margin-bottom: 10px;"></i>
                     <h4>Navigasi</h4>
-                    <a href="https://youtu.be/4GcGeCAPP6I?si=vGP9yoHeLUpWywWr" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
+                    <a href="https://www.youtube.com/results?search_query=access+form+navigation+buttons" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem;">Tonton</a>
                 </div>
             </div>
         </section>
@@ -172,14 +211,6 @@
     <footer>&copy; 2026 Portal ASK T3 | Inspirasi Teknologi Pendidikan</footer>
 
     <script>
-        window.addEventListener("load", function() {
-        const loader = document.getElementById("loader-wrapper");
-        
-        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
-        setTimeout(() => {
-            loader.classList.add("loader-hidden");
-        }, 500);
-    });
         var music = document.getElementById("bgMusic");
         music.volume = 0.025; 
         
@@ -207,5 +238,3 @@
     </script>
 </body>
 </html>
-
-
