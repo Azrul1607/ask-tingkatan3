@@ -8,12 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div id="loader-wrapper">
-    <div class="loader-content">
-        <div class="neon-circle"></div>
-        <div class="loader-text">MEMUATKAN DATA...</div>
-    </div>
-</div>
 
     <div class="music-container">
         <div class="music-info">
@@ -44,74 +38,56 @@
     </nav>
 
     <div class="container">
-        <h2><i class="fas fa-rocket"></i> Pilih Platform Pembelajaran</h2>
-        <p style="margin-bottom: 30px; color: var(--text-muted);">Klik butang pada kad di bawah untuk membuka permainan dalam tab baharu.</p>
+        <h2 style="justify-content: center;"><i class="fas fa-rocket"></i> PILIH MISI ANDA</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Selesaikan cabaran interaktif di bawah untuk mengumpul kemahiran pangkalan data anda.</p>
 
         <div class="grid-games">
             <div class="card-game">
-                <div style="margin-bottom: 15px;">
-                    <i class="fas fa-th-large fa-3x" style="color: #d32f2f;"></i>
-                </div>
+                <div class="game-badge">HOT</div>
+                <i class="fas fa-th-large fa-4x" style="color: #d32f2f;"></i>
                 <h3>Wordwall</h3>
-                <p>Kuiz interaktif, padanan, dan teka silang kata ASK.</p>
-                <a href="https://wordwall.net/ms-my/community/ask-tingkatan-3" target="_blank" class="btn">Main</a>
+                <p>Padanan istilah Borang, Jadual, dan SQL melalui permainan arked klasik.</p>
+                <a href="https://wordwall.net/ms-my/community/ask-tingkatan-3" target="_blank" class="btn">MAIN SEKARANG</a>
             </div>
 
             <div class="card-game">
-                <div style="margin-bottom: 15px;">
-                    <i class="fas fa-play-circle fa-3x" style="color: #46178f;"></i>
-                </div>
+                <i class="fas fa-play-circle fa-4x" style="color: #46178f;"></i>
                 <h3>Kahoot!</h3>
-                <p>Pertandingan kuiz langsung yang mencabar dan pantas.</p>
-                <a href="https://kahoot.it/" target="_blank" class="btn">Pin Kod</a>
+                <p>Pertempuran minda secara langsung! Masukkan PIN kod dan jadilah juara kelas.</p>
+                <a href="https://kahoot.it/" target="_blank" class="btn">PIN KOD</a>
             </div>
 
             <div class="card-game">
-                <div style="margin-bottom: 15px;">
-                    <i class="fas fa-check-double fa-3x" style="color: #6d107a;"></i>
-                </div>
+                <i class="fas fa-check-double fa-4x" style="color: #6d107a;"></i>
                 <h3>Quizizz</h3>
-                <p>Latihan kendiri bertema dengan avatar yang menarik.</p>
-                <a href="https://quizizz.com/join" target="_blank" class="btn">Mula</a>
+                <p>Uji pengetahuan 4.1.6 secara kendiri dengan avatar dan muzik yang menarik.</p>
+                <a href="https://quizizz.com/join" target="_blank" class="btn">MULA MISI</a>
             </div>
 
             <div class="card-game">
-                <div style="margin-bottom: 15px;">
-                    <i class="fas fa-puzzle-piece fa-3x" style="color: #2196f3;"></i>
-                </div>
+                <i class="fas fa-puzzle-piece fa-4x" style="color: #2196f3;"></i>
                 <h3>LearningApps</h3>
-                <p>Aktiviti menyusun langkah kerja Form Wizard/Subform.</p>
-                <a href="https://learningapps.org/" target="_blank" class="btn">Teroka</a>
+                <p>Susun langkah membina Borang (Form Wizard) dengan urutan yang betul.</p>
+                <a href="https://learningapps.org/" target="_blank" class="btn">TEROKA</a>
             </div>
 
             <div class="card-game">
-                <div style="margin-bottom: 15px;">
-                    <i class="fas fa-bolt fa-3x" style="color: #ff9800;"></i>
-                </div>
+                <i class="fas fa-bolt fa-4x" style="color: #ff9800;"></i>
                 <h3>Baamboozle</h3>
-                <p>Permainan berpasukan dengan sistem markah unik.</p>
-                <a href="https://www.baamboozle.com/pin" target="_blank" class="btn">MULA</a>
+                <p>Permainan berpasukan. Pilih nombor, jawab soalan, dan curi markah lawan!</p>
+                <a href="https://www.baamboozle.com/pin" target="_blank" class="btn">PLAY TEAM</a>
             </div>
         </div>
 
-        <div class="card" style="margin-top: 40px; border-left: 5px solid var(--primary);">
-            <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> <strong>Info Penting:</strong> Gunakan mod <em>landscape</em> jika anda bermain menggunakan telefon pintar untuk paparan yang lebih baik.</p>
+        <div class="card" style="margin-top: 40px; border-left: 5px solid var(--primary); background: rgba(0, 210, 255, 0.05);">
+            <p><i class="fas fa-mobile-alt" style="color: var(--primary);"></i> <strong>Tip Pro:</strong> Untuk pengalaman permainan yang lebih imersif, gunakan peranti dalam mod <strong>Landskap</strong>.</p>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 Portal Sains Komputer T3 | Sumber Pendidikan Digital
-    </footer>
+    <footer>&copy; 2026 Portal ASK T3 | Inspirasi Teknologi Pendidikan</footer>
 
     <script>
-        window.addEventListener("load", function() {
-        const loader = document.getElementById("loader-wrapper");
-        
-        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
-        setTimeout(() => {
-            loader.classList.add("loader-hidden");
-        }, 500);
-    });
+        // Logik Audio
         var music = document.getElementById("bgMusic");
         music.volume = 0.025;
 
@@ -120,9 +96,7 @@
                 document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
                 document.removeEventListener('click', playMusic);
                 document.removeEventListener('touchstart', playMusic);
-            }).catch((error) => {
-                console.log("Autoplay disekat.");
-            });
+            }).catch(() => {});
         }
 
         document.addEventListener('click', playMusic);
@@ -141,4 +115,3 @@
     </script>
 </body>
 </html>
-
