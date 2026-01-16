@@ -6,14 +6,21 @@
     <title>Portal ASK T3 | Utama</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Gaya tambahan khusus untuk animasi loading */
+        body.loading {
+            overflow: hidden;
+        }
+    </style>
 </head>
-<body>
-   <div id="loader-wrapper">
-    <div class="loader-content">
-        <div class="neon-circle"></div>
-        <div class="loader-text">MEMUATKAN DATA...</div>
+<body class="loading">
+
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="neon-circle"></div>
+            <div class="loader-text">MEMUATKAN DATA...</div>
+        </div>
     </div>
-</div>
 
     <div class="music-container">
         <div class="music-info">
@@ -58,19 +65,21 @@
             </div>
         </section>
 
+        
+
         <div class="grid-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
-            <div class="card feature-card">
-                <i class="fas fa-file-invoice fa-2x" style="color: var(--secondary);"></i>
+            <div class="card feature-card" style="text-align: center;">
+                <i class="fas fa-file-invoice fa-2x" style="color: var(--secondary); margin-bottom: 15px; display: block;"></i>
                 <h3>Borang Wizard</h3>
                 <p>Pelajari cara membina borang secara automatik dalam Microsoft Access.</p>
             </div>
-            <div class="card feature-card">
-                <i class="fas fa-mouse-pointer fa-2x" style="color: var(--accent);"></i>
+            <div class="card feature-card" style="text-align: center;">
+                <i class="fas fa-mouse-pointer fa-2x" style="color: var(--accent); margin-bottom: 15px; display: block;"></i>
                 <h3>Navigasi Rekod</h3>
                 <p>Kuasai fungsi butang navigasi untuk pengurusan data yang cekap.</p>
             </div>
-            <div class="card feature-card">
-                <i class="fas fa-database fa-2x" style="color: var(--primary);"></i>
+            <div class="card feature-card" style="text-align: center;">
+                <i class="fas fa-database fa-2x" style="color: var(--primary); margin-bottom: 15px; display: block;"></i>
                 <h3>Integriti Data</h3>
                 <p>Memastikan data yang dimasukkan melalui borang disimpan dengan tepat.</p>
             </div>
@@ -78,31 +87,36 @@
     </div>
 
     <footer>
-        &copy; 2025 Portal ASK Tingkatan 3 | Sumber Pendidikan Digital
+        &copy; 2026 Portal ASK Tingkatan 3 | Sumber Pendidikan Digital
     </footer>
 
     <script>
+        // --- A. PENGURUSAN LOADING SCREEN ---
         window.addEventListener("load", function() {
-        const loader = document.getElementById("loader-wrapper");
-        
-        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
-        setTimeout(() => {
-            loader.classList.add("loader-hidden");
-        }, 1000);
-    });
-        // 1. Kawalan Muzik Latar
+            const loader = document.getElementById("loader-wrapper");
+            const body = document.body;
+            
+            setTimeout(() => {
+                loader.classList.add("loader-hidden");
+                body.classList.remove("loading");
+            }, 800); // Beri masa 2 saat untuk kesan dramatik
+        });
+
+        // --- B. KAWALAN MUZIK LATAR ---
         const bgMusic = document.getElementById("bgMusic");
         const musicBtn = document.getElementById("musicBtn");
-        bgMusic.volume = 0.025; // Volume sangat perlahan
+        bgMusic.volume = 0.025;
 
         function playOnFirstClick() {
             bgMusic.play().then(() => {
                 musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 document.removeEventListener('click', playOnFirstClick);
-            }).catch(e => console.log("Menunggu interaksi..."));
+                document.removeEventListener('touchstart', playOnFirstClick);
+            }).catch(e => console.log("Menunggu interaksi pengguna..."));
         }
 
         document.addEventListener('click', playOnFirstClick);
+        document.addEventListener('touchstart', playOnFirstClick);
 
         function toggleMusic() {
             if (bgMusic.paused) {
@@ -114,16 +128,16 @@
             }
         }
 
-        // 2. Kesan Bunyi Klik (Cursor Hover)
+        // --- C. KESAN BUNYI KLIK (CURSOR HOVER) ---
         const clickSound = document.getElementById("clickSound");
-        clickSound.volume = 0.2; // Volume bunyi klik lebih jelas
+        clickSound.volume = 0.15;
 
         // Pilih semua elemen interaktif
         const interactiveItems = document.querySelectorAll('.card, .btn, nav a, .feature-card');
 
         interactiveItems.forEach(item => {
             item.addEventListener('mouseenter', () => {
-                clickSound.currentTime = 0; // Reset bunyi ke awal
+                clickSound.currentTime = 0;
                 clickSound.play().catch(e => {}); 
             });
         });
@@ -131,7 +145,3 @@
 
 </body>
 </html>
-
-
-
-
