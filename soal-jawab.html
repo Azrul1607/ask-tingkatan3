@@ -6,32 +6,8 @@
     <title>Soal Jawab | ASK T3</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Gaya tambahan untuk butang platform */
-        .btn-platform {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-            border: none;
-            transition: transform 0.2s;
-        }
-        .btn-platform:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
-        .btn-wa { background-color: #25D366; color: white; }
-        .btn-tg { background-color: #0088cc; color: white; }
-    </style>
 </head>
 <body>
-    <div id="loader-wrapper">
-    <div class="loader-content">
-        <div class="neon-circle"></div>
-        <div class="loader-text">MEMUATKAN DATA...</div>
-    </div>
-</div>
 
     <div class="music-container">
         <div class="music-info">
@@ -63,83 +39,101 @@
 
     <div class="container">
         <section>
-            <h2><i class="fas fa-share-nodes"></i> Hantar Soalan</h2>
-            <p style="margin-bottom: 25px; color: #aaa;">Isi borang dan pilih platform untuk menghubungi guru.</p>
+            <h2><i class="fas fa-paper-plane"></i> Hantar Soalan</h2>
+            <p style="margin-bottom: 25px; color: var(--text-muted);">Isi borang di bawah untuk menghantar mesej terus kepada guru anda.</p>
 
             <form id="borangSoalan">
                 <div class="card">
-                    <label for="nama"><i class="fas fa-user"></i> Nama Penuh:</label>
-                    <input type="text" id="nama" placeholder="Nama anda" required>
+                    <div class="input-group">
+                        <label for="nama"><i class="fas fa-user"></i> NAMA PENUH</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama penuh anda" required>
+                    </div>
 
-                    <label for="kelas"><i class="fas fa-school"></i> Kelas:</label>
-                    <select id="kelas" required>
-                        <option value="">-- Pilih Kelas --</option>
-                        <option value="3 Amanah">3 Amanah</option>
-                        <option value="3 Bijak">3 Bijak</option>
-                        <option value="3 Cekap">3 Cekap</option>
-                        <option value="3 Dinamik">3 Dinamik</option>
-                    </select>
+                    <div class="input-group">
+                        <label for="kelas"><i class="fas fa-school"></i> KELAS</label>
+                        <select id="kelas" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="3 Amanah">3 Amanah</option>
+                            <option value="3 Bijak">3 Bijak</option>
+                            <option value="3 Cekap">3 Cekap</option>
+                            <option value="3 Dinamik">3 Dinamik</option>
+                        </select>
+                    </div>
 
-                    <label for="soalan"><i class="fas fa-pen"></i> Pertanyaan:</label>
-                    <textarea id="soalan" rows="4" placeholder="Tulis soalan anda..." required></textarea>
+                    <div class="input-group">
+                        <label for="soalan"><i class="fas fa-pen"></i> PERTANYAAN</label>
+                        <textarea id="soalan" rows="4" placeholder="Apa yang anda ingin tanyakan?" required></textarea>
+                    </div>
 
-                    <div style="margin-top: 20px;">
-                        <p style="font-size: 0.9em; color: #aaa; margin-bottom: 10px;">Pilih cara penghantaran:</p>
+                    <div style="margin-top: 10px;">
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; text-align: center; border-top: 1px solid var(--glass-border); padding-top: 15px;">Klik platform untuk hantar:</p>
                         
-                        <button type="button" class="btn btn-platform btn-wa" onclick="hantar('whatsapp')">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </button>
+                        <div class="platform-container">
+                            <button type="button" class="btn-platform btn-wa" onclick="hantar('whatsapp')">
+                                <i class="fab fa-whatsapp fa-lg"></i> WHATSAPP
+                            </button>
 
-                        <button type="button" class="btn btn-platform btn-tg" onclick="hantar('telegram')">
-                            <i class="fab fa-telegram-plane"></i> Telegram
-                        </button>
+                            <button type="button" class="btn-platform btn-tg" onclick="hantar('telegram')">
+                                <i class="fab fa-telegram-plane fa-lg"></i> TELEGRAM
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>
 
-            <div id="notifikasi" class="card" style="display:none; border-left-color: var(--secondary); background: rgba(0, 255, 136, 0.05);">
-                <h3 style="color: var(--secondary);"><i class="fas fa-paper-plane"></i> Memproses...</h3>
+            <div id="notifikasi" class="card" style="display:none; border-left: 5px solid var(--secondary); background: rgba(0, 255, 136, 0.05);">
+                <h3 style="color: var(--secondary);"><i class="fas fa-check-circle"></i> Pesanan Disediakan!</h3>
                 <p id="paparanData" style="margin: 15px 0; color: #fff;"></p>
-                <button class="btn" onclick="window.location.reload()">Tulis Semula</button>
+                <button class="btn" onclick="window.location.reload()">Tulis Soalan Lain</button>
             </div>
         </section>
     </div>
 
-    <footer>&copy; 2025 Portal ASK T3</footer>
+    <footer>&copy; 2026 Portal ASK T3 | Inspirasi Teknologi Pendidikan</footer>
 
     <script>
-        window.addEventListener("load", function() {
-        const loader = document.getElementById("loader-wrapper");
-        
-        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
-        setTimeout(() => {
-            loader.classList.add("loader-hidden");
-        }, 500);
-    });
+        // Logik Audio & Muzik
         var music = document.getElementById("bgMusic");
         music.volume = 0.025;
 
-        function toggleMusic() {
-            var btn = document.getElementById("musicBtn");
-            if (music.paused) { music.play(); btn.innerHTML = '<i class="fas fa-pause"></i>'; }
-            else { music.pause(); btn.innerHTML = '<i class="fas fa-play"></i>'; }
+        function playMusic() {
+            music.play().then(() => {
+                document.getElementById("musicBtn").innerHTML = '<i class="fas fa-pause"></i>';
+                document.removeEventListener('click', playMusic);
+                document.removeEventListener('touchstart', playMusic);
+            }).catch(() => {});
         }
 
+        document.addEventListener('click', playMusic);
+        document.addEventListener('touchstart', playMusic);
+
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                music.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        // Logik Penghantaran Soalan
         function hantar(platform) {
             const nama = document.getElementById('nama').value;
             const kelas = document.getElementById('kelas').value;
             const soalan = document.getElementById('soalan').value;
 
             // --- TETAPAN GURU ---
-            const noWA = "601165635788"; // Ganti dengan no WhatsApp anda
-            const usernameTG = "Azrul1607"; // Ganti dengan Username Telegram anda (tanpa @)
+            const noWA = "601165635788"; 
+            const usernameTG = "Azrul1607"; 
 
             if (!nama || !kelas || !soalan) {
-                alert("Lengkapkan borang terlebih dahulu!");
+                alert("Sila isi semua maklumat sebelum hantar.");
                 return;
             }
 
-            const mesej = `Salam Cikgu, saya *${nama}* (${kelas}).\n\nSoalan: ${soalan}`;
+            const mesej = `Salam Cikgu, saya *${nama}* dari kelas *${kelas}*.\n\n*Pertanyaan:* ${soalan}`;
             let url = "";
 
             if (platform === 'whatsapp') {
@@ -148,13 +142,15 @@
                 url = `https://t.me/${usernameTG}?text=${encodeURIComponent(mesej)}`;
             }
 
-            document.getElementById('borangSoalan').style.display = 'none';
-            document.getElementById('notifikasi').style.display = 'block';
-            document.getElementById('paparanData').innerText = `Membuka ${platform}...`;
-
-            setTimeout(() => { window.open(url, '_blank'); }, 800);
+            // Animasi Notifikasi
+            document.getElementById('borangSoalan').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('borangSoalan').style.display = 'none';
+                document.getElementById('notifikasi').style.display = 'block';
+                document.getElementById('paparanData').innerText = `Menghubungkan ke ${platform}... Sila hantar mesej di aplikasi tersebut.`;
+                window.open(url, '_blank');
+            }, 500);
         }
     </script>
 </body>
-
 </html>
