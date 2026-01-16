@@ -3,35 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuiz Interaktif | ASK T3</title>
+    <title>Kuiz Mega ASK T3 | Bab 4.1.6</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #00ff88;
+            --accent: #ff4757;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .score-box {
+            position: sticky;
+            top: 10px;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid var(--secondary);
+            text-align: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .card label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .card label:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .input-kod {
+            width: 100%;
+            background: #0f172a;
+            border: 1px solid #334155;
+            padding: 12px;
+            color: var(--secondary);
+            font-family: 'Courier New', monospace;
+            border-radius: 8px;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        .input-kod:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .feedback {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .btn-check {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: #0f172a;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-check:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.5);
+        }
+    </style>
 </head>
 <body>
-    <div id="loader-wrapper">
-    <div class="loader-content">
-        <div class="neon-circle"></div>
-        <div class="loader-text">MEMUATKAN DATA...</div>
-    </div>
-</div>
 
     <div class="music-container">
-        <div class="music-info">
-            <span><i class="fas fa-music"></i> Audio System</span>
-        </div>
-        <audio id="bgMusic" loop>
-            <source src="bckgrnd.mp3" type="audio/mpeg">
-        </audio>
-        <button onclick="toggleMusic()" class="music-btn" id="musicBtn">
-            <i class="fas fa-play"></i>
-        </button>
+        <audio id="bgMusic" loop><source src="bckgrnd.mp3" type="audio/mpeg"></audio>
+        <button onclick="toggleMusic()" class="music-btn" id="musicBtn"><i class="fas fa-play"></i></button>
     </div>
 
     <header>
         <div class="header-content">
-            <i class="fas fa-brain fa-3x" style="color: var(--accent); margin-bottom: 10px;"></i>
-            <h1>Cabaran Kuiz</h1>
-            <p>Topik 4.1.6: Menghasilkan Borang & Memasukkan Data</p>
+            <i class="fas fa-brain fa-3x" style="color: var(--secondary);"></i>
+            <h1>Cabaran Kuiz Mega</h1>
+            <p>Uji Kefahaman Topik 4.1.6 (40 Soalan)</p>
         </div>
     </header>
 
@@ -44,162 +129,202 @@
     </nav>
 
     <div class="container">
+        <div class="score-box">
+            <h2 id="displayScore" style="color: var(--secondary); margin: 0;">Skor: 0 / 40</h2>
+            <p id="gredTeks" style="margin: 5px 0; color: #aaa;">Sila jawab semua soalan</p>
+        </div>
+
         <section id="bahagianA">
-            <h2><i class="fas fa-list-ul"></i> Bahagian A: Objektif</h2>
-            
-            
-
-            <div class="card">
-                <p><strong>1.</strong> Atribut manakah menentukan fail PHP untuk memproses data?</p>
-                <input type="radio" name="q1" id="q1a"> A) Action <br>
-                <input type="radio" name="q1" id="q1b"> B) Method <br>
-                <input type="radio" name="q1" id="q1c"> C) Name
-            </div>
-
-            <div class="card">
-                <p><strong>2.</strong> Kaedah manakah yang memaparkan data pada bar alamat URL?</p>
-                <input type="radio" name="q2" id="q2a"> A) POST <br>
-                <input type="radio" name="q2" id="q2b"> B) GET <br>
-                <input type="radio" name="q2" id="q2c"> C) SUBMIT
-            </div>
-
-            <div class="card">
-                <p><strong>3.</strong> Tag untuk membina butang pilihan (pilih satu sahaja):</p>
-                <input type="radio" name="q3" id="q3a"> A) Checkbox <br>
-                <input type="radio" name="q3" id="q3b"> B) Radio <br>
-                <input type="radio" name="q3" id="q3c"> C) Select
-            </div>
-
-            <div class="card">
-                <p><strong>4.</strong> Digunakan untuk mengumpul data ulasan atau alamat (berbilang baris):</p>
-                <input type="radio" name="q4" id="q4a"> A) Textarea <br>
-                <input type="radio" name="q4" id="q4b"> B) Textbox <br>
-                <input type="radio" name="q4" id="q4c"> C) Input Type="text"
-            </div>
-
-            <div class="card">
-                <p><strong>5.</strong> Manakah antara berikut adalah kelebihan kaedah <strong>POST</strong>?</p>
-                <input type="radio" name="q5" id="q5a"> A) Lebih selamat untuk data sulit <br>
-                <input type="radio" name="q5" id="q5b"> B) Data dipaparkan di URL <br>
-                <input type="radio" name="q5" id="q5c"> C) Hanya boleh hantar sedikit data
-            </div>
-
-            <div style="text-align: center;">
-                <button class="btn" onclick="checkObjektif()">
-                    <i class="fas fa-check-circle"></i> Semak Bahagian A
-                </button>
-                <h3 id="resObj" style="margin-top:15px; color: var(--primary);"></h3>
-            </div>
+            <h2 style="color: var(--primary);"><i class="fas fa-list-ol"></i> Bahagian A: 30 Soalan Objektif</h2>
+            <div class="quiz-grid" id="objektifContainer"></div>
         </section>
 
-        <hr style="margin: 40px 0; border: 1px dashed var(--glass-border);">
+        <hr style="margin: 50px 0; border: 1px dashed var(--glass-border);">
 
         <section id="bahagianB">
-            <h2><i class="fas fa-code"></i> Bahagian B: Subjektif Kod HTML</h2>
-            <p style="margin-bottom: 20px; color: #aaa;"><em>Taip kod HTML yang tepat. Sistem akan mengabaikan ruang kosong yang tidak perlu.</em></p>
+            <h2 style="color: var(--secondary);"><i class="fas fa-terminal"></i> Bahagian B: 10 Soalan Kod & Teori</h2>
+            <div id="subjektifContainer">
+                <div class="card">
+                    <p><strong>31.</strong> Tuliskan tag pembuka borang dengan kaedah <b>POST</b> dan aksi ke <b>proses.php</b>.</p>
+                    <input type="text" id="s31" class="input-kod" placeholder="<form action='...' method='...'>">
+                    <div id="ans31" class="feedback"></div>
+                </div>
 
-            <div class="card">
-                <p><strong>6.</strong> Tuliskan tag pembuka borang yang menghantar data ke "proses.php".</p>
-                <input type="text" id="s6" class="input-kod" placeholder="<form ...>">
-                <div id="ans6" class="feedback"></div>
-            </div>
+                <div class="card">
+                    <p><strong>32.</strong> Apakah atribut yang digunakan untuk memastikan pengguna wajib mengisi input?</p>
+                    <input type="text" id="s32" class="input-kod" placeholder="Nama atribut sahaja">
+                    <div id="ans32" class="feedback"></div>
+                </div>
 
-            <div class="card">
-                <p><strong>7.</strong> Kod input teks dengan nama (name) "username".</p>
-                <input type="text" id="s7" class="input-kod" placeholder="<input ...>">
-                <div id="ans7" class="feedback"></div>
-            </div>
+                <div class="card">
+                    <p><strong>33.</strong> Kod input untuk <b>kata laluan</b> dengan nama <b>"pass123"</b>.</p>
+                    <input type="text" id="s33" class="input-kod" placeholder="<input type='...' name='...'>">
+                    <div id="ans33" class="feedback"></div>
+                </div>
 
-            <div class="card">
-                <p><strong>8.</strong> Apakah tag input untuk mencipta butang 'Hantar' (submit)?</p>
-                <input type="text" id="s8" class="input-kod" placeholder="<input ...>">
-                <div id="ans8" class="feedback"></div>
-            </div>
+                <div class="card">
+                    <p><strong>34.</strong> Tag HTML yang digunakan untuk membina kotak ulasan yang besar.</p>
+                    <input type="text" id="s34" class="input-kod" placeholder="Contoh: <tagname>">
+                    <div id="ans34" class="feedback"></div>
+                </div>
 
-            <div style="text-align: center;">
-                <button class="btn" onclick="checkSubjektif()" style="border-color: var(--secondary); color: var(--secondary);">
-                    <i class="fas fa-spell-check"></i> Semak Bahagian B
-                </button>
-                <h3 id="resSub" style="margin-top:15px; color: var(--secondary);"></h3>
+                <div class="card">
+                    <p><strong>35.</strong> Tuliskan kod input teks dengan teks bayangan <b>"Masukkan Nama"</b>.</p>
+                    <input type="text" id="s35" class="input-kod" placeholder="<input type='...' placeholder='...'>">
+                    <div id="ans35" class="feedback"></div>
+                </div>
+
+                <div class="card">
+                    <p><strong>36.</strong> Atribut untuk mengehadkan jumlah aksara (contoh: 12 aksara sahaja).</p>
+                    <input type="text" id="s36" class="input-kod" placeholder="Nama atribut sahaja">
+                    <div id="ans36" class="feedback"></div>
+                </div>
+
+                <div class="card">
+                    <p><strong>37.</strong> Kod untuk membina butang <b>Hantar</b> dengan teks butang "SIMPAN".</p>
+                    <input type="text" id="s37" class="input-kod" placeholder="<input type='...' value='...'>">
+                    <div id="ans37" class="feedback"></div>
+                </div>
+
+                <div class="card">
+                    <p><strong>38.</strong> Kaedah yang lebih selamat untuk menghantar data sulit.</p>
+                    <input type="text" id="s38" class="input-kod" placeholder="POST atau GET?">
+                    <div id="ans38" class="feedback"></div>
+                </div>
+
+                <div class="card">
+                    <p><strong>39.</strong> Tag yang digunakan di dalam &lt;select&gt; untuk item pilihan.</p>
+                    <input type="text" id="s39" class="input-kod" placeholder="Contoh: <tagname>">
+                    <div id="ans39" class="feedback"></div>
+                </div>
+
+                <div class="card">
+                    <p><strong>40.</strong> Kod input untuk <b>tarikh</b> dengan nama <b>"tarikh_lahir"</b>.</p>
+                    <input type="text" id="s40" class="input-kod" placeholder="<input type='...' name='...'>">
+                    <div id="ans40" class="feedback"></div>
+                </div>
             </div>
         </section>
+
+        <div style="text-align: center; margin: 60px 0;">
+            <button class="btn-check" onclick="checkSemua()">
+                <i class="fas fa-check-circle"></i> SEMAK JAWAPAN & LIHAT GRED
+            </button>
+        </div>
     </div>
 
-    <footer>&copy; 2025 Portal ASK Tingkatan 3 | Rujukan Bab 4.1.6</footer>
+    <footer>&copy; 2026 Portal ASK T3 | Reka Bentuk Pangkalan Data</footer>
 
     <script>
-        window.addEventListener("load", function() {
-        const loader = document.getElementById("loader-wrapper");
-        
-        // Beri sedikit masa (0.5 saat) untuk efek lebih smooth
-        setTimeout(() => {
-            loader.classList.add("loader-hidden");
-        }, 500);
-    });
-        // Tetapan awal volume mengikut permintaan anda (0.025)
-        var music = document.getElementById("bgMusic");
-        music.volume = 0.025;
+        const questionsA = [
+            { q: "Fungsi utama tag &lt;form&gt;?", a: "B", opt: ["Papar jadual", "Mengumpul input pengguna", "Tambah gambar", "Sambung database"] },
+            { q: "Atribut menentukan cara data dihantar?", a: "C", opt: ["action", "id", "method", "target"] },
+            { q: "Kaedah memaparkan data di URL?", a: "C", opt: ["SEND", "POST", "GET", "URL"] },
+            { q: "Kelemahan kaedah GET?", a: "B", opt: ["Lambat", "Tidak selamat untuk password", "Hanya untuk imej", "Sukar dikod"] },
+            { q: "Kaedah selamat untuk data sulit?", a: "A", opt: ["POST", "GET", "SECURE", "HIDDEN"] },
+            { q: "Tag untuk kotak input satu baris?", a: "B", opt: ["&lt;textarea&gt;", "&lt;input type='text'&gt;", "&lt;select&gt;", "&lt;button&gt;"] },
+            { q: "Fungsi atribut action='proses.php'?", a: "B", opt: ["Nama borang", "Fail pemproses data", "Hapus data", "Tukar warna"] },
+            { q: "Pilih lebih daripada satu pilihan?", a: "C", opt: ["Radio Button", "Textbox", "Checkbox", "Drop-down"] },
+            { q: "Input untuk Jantina (L/P)?", a: "B", opt: ["Checkbox", "Radio Button", "Submit", "Textarea"] },
+            { q: "&lt;textarea&gt; sesuai untuk?", a: "C", opt: ["Nama penuh", "Password", "Alamat/Ulasan", "Tarikh"] },
+            { q: "Sintaks menu lungsur (drop-down)?", a: "B", opt: ["type='list'", "&lt;select&gt; & &lt;option&gt;", "&lt;form&gt; & &lt;list&gt;", "&lt;textarea&gt;"] },
+            { q: "Kegunaan atribut placeholder?", a: "B", opt: ["Nilai kekal", "Teks bayangan/petunjuk", "Wajib isi", "Hubung CSS"] },
+            { q: "Kesan jika tiada atribut 'name'?", a: "B", opt: ["Borang hilang", "Data gagal dikenal pasti PHP", "Kotak jadi merah", "Ralat laman"] },
+            { q: "Sembunyi aksara semasa menaip?", a: "B", opt: ["type='hidden'", "type='password'", "type='secret'", "type='private'"] },
+            { q: "Atribut required berfungsi untuk?", a: "B", opt: ["Cantikkan borang", "Pastikan input diisi", "Hubung database", "Tukar font"] },
+            { q: "Tetapkan nilai lalai (default)?", a: "B", opt: ["placeholder", "value", "text", "default"] },
+            { q: "Butang hantar data ke pelayan?", a: "C", opt: ["type='reset'", "type='button'", "type='submit'", "type='send'"] },
+            { q: "Kegunaan input type='reset'?", a: "B", opt: ["Hantar semula", "Kosongkan borang", "Tutup laman", "Restart database"] },
+            { q: "Atribut maxlength digunakan untuk?", a: "B", opt: ["Lebar kotak", "Had jumlah aksara", "Saiz fail", "Tinggi teks"] },
+            { q: "Input type='number' akan?", a: "A", opt: ["Benar angka sahaja", "Benar semua aksara", "Tukar teks ke angka", "Kira baris"] },
+            { q: "Atribut 'selected' digunakan dalam?", a: "B", opt: ["Hapus pilihan", "Tetapkan pilihan asal", "Tukar warna", "Sembunyi pilihan"] },
+            { q: "Muat naik fail guna type?", a: "B", opt: ["upload", "file", "image", "folder"] },
+            { q: "Tag &lt;label&gt; penting untuk?", a: "B", opt: ["Kelajuan", "Kebolehcapaian/Klik", "Keselamatan", "Saiz fail"] },
+            { q: "Beza POST vs GET (Kapasiti)?", a: "B", opt: ["GET lebih banyak", "POST tiada had ketat", "Sama sahaja", "POST hanya imej"] },
+            { q: "Nilai disimpan dalam &lt;option value='3A'&gt;?", a: "B", opt: ["3 Amanah", "3A", "Option", "Value"] },
+            { q: "Input checkbox perlukan name yang?", a: "B", opt: ["Unik setiap satu", "Sama (Array) dlm kumpulan", "Tiada name", "Mula angka"] },
+            { q: "Atribut rows dan cols untuk tag?", a: "B", opt: ["&lt;input&gt;", "&lt;textarea&gt;", "&lt;select&gt;", "&lt;form&gt;"] },
+            { q: "Maksud Form Validation?", a: "B", opt: ["CSS cantik", "Semak data sebelum hantar", "Padam data", "Tukar ke PHP"] },
+            { q: "Untuk input tarikh guna type?", a: "B", opt: ["calendar", "date", "time", "year"] },
+            { q: "Susunan tag yang betul?", a: "B", opt: ["input-form-label", "form-label-input", "label-form-input", "input-label-form"] }
+        ];
 
-        function toggleMusic() {
-            var btn = document.getElementById("musicBtn");
-            if (music.paused) { 
-                music.play(); 
-                btn.innerHTML = '<i class="fas fa-pause"></i>'; 
-            } else { 
-                music.pause(); 
-                btn.innerHTML = '<i class="fas fa-play"></i>'; 
-            }
-        }
-
-        function checkObjektif() {
-            let score = 0;
-            if(document.getElementById('q1a').checked) score++;
-            if(document.getElementById('q2b').checked) score++;
-            if(document.getElementById('q3b').checked) score++;
-            if(document.getElementById('q4a').checked) score++;
-            if(document.getElementById('q5a').checked) score++;
-            
-            document.getElementById('resObj').innerText = "Markah Bahagian A: " + score + "/5";
-        }
-
-        function checkSubjektif() {
-            let score = 0;
-            
-            // Soalan 6: <form action="proses.php">
-            let v6 = document.getElementById('s6').value.replace(/\s/g, '').toLowerCase();
-            if(v6.includes('<formaction="proses.php"')) {
-                score++; showFeedback('ans6', "Betul!", "var(--secondary)");
-            } else {
-                showFeedback('ans6', "Salah! Jawapan: <form action='proses.php'>", "var(--accent)");
-            }
-
-            // Soalan 7: <input type="text" name="username">
-            let v7 = document.getElementById('s7').value.replace(/\s/g, '').toLowerCase();
-            if(v7.includes('type="text"') && v7.includes('name="username"')) {
-                score++; showFeedback('ans7', "Betul!", "var(--secondary)");
-            } else {
-                showFeedback('ans7', "Salah! Jawapan: <input type='text' name='username'>", "var(--accent)");
-            }
-
-            // Soalan 8: <input type="submit">
-            let v8 = document.getElementById('s8').value.replace(/\s/g, '').toLowerCase();
-            if(v8.includes('type="submit"')) {
-                score++; showFeedback('ans8', "Betul!", "var(--secondary)");
-            } else {
-                showFeedback('ans8', "Salah! Jawapan: <input type='submit'>", "var(--accent)");
-            }
-
-            document.getElementById('resSub').innerText = "Markah Bahagian B: " + score + "/3";
-        }
+        // Generate Objektif
+        const containerA = document.getElementById('objektifContainer');
+        questionsA.forEach((item, index) => {
+            containerA.innerHTML += `
+                <div class="card">
+                    <p><strong>${index + 1}.</strong> ${item.q}</p>
+                    ${item.opt.map((o, i) => `
+                        <label><input type="radio" name="q${index}" value="${String.fromCharCode(65 + i)}"> ${String.fromCharCode(65 + i)}) ${o}</label>
+                    `).join('')}
+                </div>`;
+        });
 
         function showFeedback(id, msg, color) {
             let el = document.getElementById(id);
             el.innerText = msg;
             el.style.color = color;
-            el.style.marginTop = "10px";
-            el.style.fontWeight = "bold";
+        }
+
+        function checkSemua() {
+            let scoreA = 0;
+            let scoreB = 0;
+
+            // Semak Bahagian A
+            questionsA.forEach((item, index) => {
+                const sel = document.querySelector(`input[name="q${index}"]:checked`);
+                if(sel && sel.value === item.a) scoreA++;
+            });
+
+            // Fungsi semakan fleksibel Bahagian B
+            const check = (id, targets) => {
+                let val = document.getElementById(id).value.toLowerCase().replace(/\s/g, '').replace(/'/g, '"');
+                let correct = targets.some(t => val.includes(t.toLowerCase().replace(/\s/g, '').replace(/'/g, '"')));
+                if(correct) { 
+                    scoreB++; 
+                    showFeedback('ans' + id.substring(1), "Betul! ✓", "var(--secondary)"); 
+                } else { 
+                    showFeedback('ans' + id.substring(1), "Salah! ✗", "var(--accent)"); 
+                }
+            };
+
+            // Skema Jawapan Bahagian B
+            check('s31', ['<formaction="proses.php"method="post"', '<formmethod="post"action="proses.php"']);
+            check('s32', ['required']);
+            check('s33', ['type="password"', 'name="pass123"']);
+            check('s34', ['<textarea>']);
+            check('s35', ['type="text"', 'placeholder="masukkannama"']);
+            check('s36', ['maxlength']);
+            check('s37', ['type="submit"', 'value="simpan"']);
+            check('s38', ['post']);
+            check('s39', ['<option>']);
+            check('s40', ['type="date"', 'name="tarikh_lahir"']);
+
+            let total = scoreA + scoreB;
+            document.getElementById('displayScore').innerText = `Skor: ${total} / 40`;
+            
+            let gred = "";
+            if(total >= 32) gred = "GRED A (CEMERLANG)";
+            else if(total >= 28) gred = "GRED B (KEPUJIAN)";
+            else if(total >= 16) gred = "GRED C (LULUS)";
+            else gred = "GRED D (GAGAL)";
+
+            document.getElementById('gredTeks').innerText = gred;
+            document.getElementById('gredTeks').style.color = (total >= 16) ? "var(--secondary)" : "var(--accent)";
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            alert(`Selesai!\nBahagian A: ${scoreA}/30\nBahagian B: ${scoreB}/10\nJumlah: ${total}/40\n\n${gred}`);
+        }
+
+        // Audio System
+        var music = document.getElementById("bgMusic");
+        music.volume = 0.05;
+        function toggleMusic() {
+            var btn = document.getElementById("musicBtn");
+            if (music.paused) { music.play(); btn.innerHTML = '<i class="fas fa-pause"></i>'; }
+            else { music.pause(); btn.innerHTML = '<i class="fas fa-play"></i>'; }
         }
     </script>
 </body>
-
 </html>
